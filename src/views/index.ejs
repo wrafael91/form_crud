@@ -1,7 +1,4 @@
 <%- include ('partials/_header') %>
-    <nav class="navbar navbar-dark bg-dark mb-4">
-        <a href="/" class="nav-brand">CRUD NodeMongo</a>
-    </nav>
 
     <div class="container">
         <div class="row">
@@ -19,13 +16,9 @@
                             <div>
                                 <button type="submit" class="btn btn-primary btn-block">Add</button>
                             </div>
-
                         </form>
-
                     </div>
-
                 </div>
-
             </div>
 
             <!-- LIST -->
@@ -41,7 +34,21 @@
 
                     </thead>
                     <tbody>
-                        
+                        <% for (let i = 0; i < tasks.length; i++) { %>
+                            <tr>
+                                <td><%=(i + 1)%></td>
+                                <td><%=(tasks[i].title)%></td>
+                                <td><%=(tasks[i].description)%></td>
+                                <td>
+                                    <a href="/turn/<%= tasks[i]._id %>" 
+                                        class="btn <%= tasks[i].status ? 'btn-success' : 'btn-dark' %>">
+                                        Done
+                                    </a>
+                                    <a href="/delete/<%= tasks[i]._id %>" class="btn btn-danger">Delete</a>
+                                    <a href="/edit/<%= tasks[i]._id %>" class="btn btn-info">Edit</a>
+                                </td>
+                            </tr>
+                        <% } %>
 
                     </tbody>
 

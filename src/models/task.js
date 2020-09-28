@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const TaskSchema = new Schema({
+const TaskSchema = new Schema({// Esquema para que funcione de manera interna
     title: String,
     description: String,
     status: {
@@ -10,4 +10,4 @@ const TaskSchema = new Schema({
     }
 })
 
-module.exports = mongoose.model('tasks', TaskSchema);
+module.exports = mongoose.model('tasks', TaskSchema);//Se ecporta a la coleccion llamada 'tasks'
